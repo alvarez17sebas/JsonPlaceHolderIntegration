@@ -4,33 +4,23 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.companytest.jsonplaceholderintegration.BR
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.model.Todo
+import com.companytest.jsonplaceholderintegration.viewmodel.TodoListViewModel
 
-class TodoViewHolder(itemView: View, var todoItemClick: TodoItemClick) : RecyclerView.ViewHolder(itemView) {
+class TodoViewHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    private var cardView: CardView = itemView.findViewById(R.id.cvContainerTodoItem)
-    private var tvTodoTitle: TextView = itemView.findViewById(R.id.tvTitleTodo)
-    private var ivTodoStatus: ImageView =  itemView.findViewById(R.id.ivTodoStatus)
-
-    private lateinit var todoItem: Todo
+    private var binding: ViewDataBinding? = null
 
     init {
-        clickEvents()
+        this.binding = binding
     }
 
-    fun binData(todoItem: Todo){
-        this.todoItem = todoItem
-        tvTodoTitle.text = todoItem.title
-
-        if(todoItem.completed) ivTodoStatus.setImageResource(R.drawable.ic_complete) else ivTodoStatus.setImageResource(R.drawable.ic_incomplete)
+    fun bindData(todoListViewModel: TodoListViewModel, position: Int){
+        binding?.setVariable(BR.model, todoListViewModel)
+        binding?.setVariable(BR.position, position)
     }
-
-    private fun clickEvents(){
-        cardView.setOnClickListener {
-            todoItemClick.todoClickItem(todoItem)
-        }
-    }
-
 }
