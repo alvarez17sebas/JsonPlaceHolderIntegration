@@ -19,6 +19,9 @@
         android:layout_margin="@dimen/multiplier_2X_dp"
         android:elevation="@dimen/multiplier_5X_dp"
         app:cardCornerRadius="@dimen/multiplier_5X_dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:onClick="@{() -> model.userClickItem(model.getUserAt(positionUser))}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/multiplier_5X_dp"
                 android:text="@{model.getUserAt(positionUser).email}"
-                style="@style/smallText"
+                style="@style/normalText"
                 app:layout_constraintBottom_toBottomOf="@+id/ivUserPhoto"
                 app:layout_constraintStart_toEndOf="@+id/ivUserPhoto" />
 

@@ -10,23 +10,13 @@
     <style name="normalText" parent="TextAppearance.AppCompat">
         <item name="color">@color/black</item>
         <item name="android:textSize">@dimen/multiplier_9X_sp</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
     </style>
 
-    <style name="subtitleText" parent="TextAppearance.AppCompat">
-        <item name="color">@color/dark_gray</item>
-        <item name="android:textSize">@dimen/multiplier_8X_sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="smallText" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/multiplier_7X_sp</item>
-        <item name="android:textStyle">normal</item>
-    </style>
 
     <style name="titleText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/multiplier_11X_sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textColor">@color/black</item>
     </style>
 

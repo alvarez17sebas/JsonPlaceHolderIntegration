@@ -22,6 +22,9 @@
         app:cardCornerRadius="@dimen/multiplier_5X_dp"
         android:layout_margin="@dimen/multiplier_2X_dp"
         android:padding="@dimen/multiplier_5X_dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:onClick="@{() -> model.clickTodoItem(model.getTodoAt(position))}">
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,14 +1,12 @@
 package com.companytest.jsonplaceholderintegration.view.activity
 
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.view.activity.todo.TodoListActivity
 import com.companytest.jsonplaceholderintegration.view.activity.user.UserListActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.reflect.KClass
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,12 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickEvents(){
 
-        btnTodoList.setOnClickListener{
+        flTodoListContainer.setOnClickListener{
             var intent: Intent = Intent(this, TodoListActivity::class.java)
             startActivity(intent)
         }
 
-        btnUserList.setOnClickListener {
+        flUserListContainer.setOnClickListener {
             var intent: Intent = Intent(this, UserListActivity::class.java)
             startActivity(intent)
         }
