@@ -14,11 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        tools:context=".view.activity.DetailTodoActivity"
+        tools:context=".view.activity.todo.DetailTodoActivity"
         android:layout_marginLeft="@dimen/multiplier_10X_dp"
         android:layout_marginRight="@dimen/multiplier_10X_dp"
         android:elevation="@dimen/multiplier_10X_dp"
-        app:cardCornerRadius="@dimen/multiplier_10X_dp">
+        app:cardCornerRadius="@dimen/multiplier_10X_dp"
+        app:cardBackgroundColor="@color/light_indigo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

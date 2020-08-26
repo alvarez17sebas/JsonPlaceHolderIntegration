@@ -8,4 +8,6 @@
     <color name="black">@android:color/black</color>
     <color name="background_footer">#90000000</color>
     <color name="dark_gray">@android:color/darker_gray</color>
+    <color name="light_indigo">#e8eaf6</color>
+
 </resources>

@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.companytest.jsonplaceholderintegration.model.Todo
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
 import com.companytest.jsonplaceholderintegration.repository.TodoRemoteRepository
-import com.companytest.jsonplaceholderintegration.view.TodoAdapter
+import com.companytest.jsonplaceholderintegration.view.adapter.TodoAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -43,13 +43,14 @@ class TodoListViewModel : ViewModel() {
         adapter.addTodos(todoList)
     }
 
-    fun getTodoAdapter(): TodoAdapter{
+    fun getTodoAdapter(): TodoAdapter {
         adapter = TodoAdapter(this)
         return adapter
     }
 
     fun getTodoAt(position:Int): Todo?{
-        return todoList.value?.get(position)
+        val todoItem = todoList.value?.get(position)
+        return todoItem
     }
 
     fun clickTodoItem(todoItem: Todo){

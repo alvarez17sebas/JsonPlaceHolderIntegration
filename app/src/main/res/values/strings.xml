@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">JsonPlaceHolder integration</string>
+
+    <string name="address">Addres </string>
+    <string name="street">Street: </string>
+    <string name="suite">Suite: </string>
+    <string name="city">City: </string>
+    <string name="zipcode">Zipcode: </string>
+
+    <string name="company">Company</string>
+    <string name="companyName">Name: </string>
+    <string name="catchPhrase">catchPhrase: </string>
+    <string name="bs">bs: </string>
+
+    <string name="todolist">Todo list</string>
+    <string name="userList">User list</string>
 </resources>
