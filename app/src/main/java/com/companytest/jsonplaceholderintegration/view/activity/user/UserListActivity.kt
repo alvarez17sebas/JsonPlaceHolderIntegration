@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityUserListBinding
 import com.companytest.jsonplaceholderintegration.model.User
+import com.companytest.jsonplaceholderintegration.userId
 import com.companytest.jsonplaceholderintegration.viewmodel.UserListViewModel
 
 class UserListActivity : AppCompatActivity() {
@@ -46,7 +47,7 @@ class UserListActivity : AppCompatActivity() {
 
         userListViewModel.userClick.observe(this, Observer { user: User ->
             var intent: Intent = Intent(this, UserDetailActivity::class.java)
-            intent.putExtra("userid", user.id.toString())
+            intent.putExtra(userId, user.id.toString())
             startActivity(intent)
         })
     }

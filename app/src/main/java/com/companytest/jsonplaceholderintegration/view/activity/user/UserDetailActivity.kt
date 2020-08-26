@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityUserDetailBinding
+import com.companytest.jsonplaceholderintegration.userId
 import com.companytest.jsonplaceholderintegration.viewmodel.UserDetailViewModel
 
 class UserDetailActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class UserDetailActivity : AppCompatActivity() {
     }
 
     private fun retrieveUserID(){
-        userID = intent.getStringExtra("userid")!!
+        userID = intent.getStringExtra(userId)!!
     }
 
 }

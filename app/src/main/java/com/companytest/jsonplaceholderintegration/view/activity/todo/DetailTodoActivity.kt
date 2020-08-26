@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityDetailTodoBinding
+import com.companytest.jsonplaceholderintegration.todoId
 import com.companytest.jsonplaceholderintegration.viewmodel.DetailTodoViewModel
 
 class DetailTodoActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class DetailTodoActivity : AppCompatActivity() {
     }
 
     private fun retrieveTodoID(){
-        todoID = intent.getStringExtra("todoid")!!
+        todoID = intent.getStringExtra(todoId)!!
     }
 
     private fun setupBinding(){

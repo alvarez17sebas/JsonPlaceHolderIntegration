@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityTodolistBinding
 import com.companytest.jsonplaceholderintegration.model.Todo
+import com.companytest.jsonplaceholderintegration.todoId
 import com.companytest.jsonplaceholderintegration.viewmodel.TodoListViewModel
 
 class TodoListActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class TodoListActivity : AppCompatActivity() {
 
         todoListViewModel.clickTodoItem.observe(this, Observer {todoItem: Todo ->
             var intent: Intent = Intent(this, DetailTodoActivity::class.java)
-            intent.putExtra("todoid", todoItem.id.toString())
+            intent.putExtra(todoId, todoItem.id.toString())
             startActivity(intent)
         })
     }
