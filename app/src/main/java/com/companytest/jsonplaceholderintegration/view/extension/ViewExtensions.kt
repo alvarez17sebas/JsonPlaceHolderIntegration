@@ -31,5 +31,5 @@ fun bindStateTodoImage(bigImageView: ImageView, todoStatus: Boolean){
 
 @BindingAdapter("booleanToText")
 fun bindTodoStatus(textView: TextView, todoStatus: Boolean){
-    if(todoStatus) textView.text = "Tarea completada" else textView.text = "Tarea NO completada"
+    if(todoStatus) textView.text = "Todo complete! =D" else textView.text = "Todo Incomplete =("
 }
