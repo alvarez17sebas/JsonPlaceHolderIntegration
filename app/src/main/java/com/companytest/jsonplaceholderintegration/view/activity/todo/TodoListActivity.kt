@@ -1,31 +1,28 @@
 package com.companytest.jsonplaceholderintegration.view.activity.todo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityTodolistBinding
 import com.companytest.jsonplaceholderintegration.model.Todo
 import com.companytest.jsonplaceholderintegration.todoId
 import com.companytest.jsonplaceholderintegration.viewmodel.TodoListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TodoListActivity : AppCompatActivity() {
 
-    private lateinit var todoListViewModel: TodoListViewModel
-
+    private val todoListViewModel: TodoListViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTitle("Todo list")
-        initVars()
+
         setupBindings()
         executeObservableCode()
-    }
-
-    private fun initVars(){
-        todoListViewModel = ViewModelProvider(this).get(TodoListViewModel::class.java)
     }
 
     private fun executeObservableCode(){

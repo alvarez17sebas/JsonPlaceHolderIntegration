@@ -1,5 +1,6 @@
 package com.companytest.jsonplaceholderintegration.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,9 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserListViewModel : ViewModel() {
-
-    private var repository: RemoteRepository<User> = UserRemoteRepository()
+class UserListViewModel  @ViewModelInject constructor(var repository: RemoteRepository<User>): ViewModel() {
 
     var userList: MutableLiveData<ArrayList<User>> = MutableLiveData()
     var loading: MutableLiveData<Boolean> = MutableLiveData()
@@ -22,8 +21,7 @@ class UserListViewModel : ViewModel() {
     private lateinit var adapter: UserAdapter
 
 
-
-    fun retrieveUserList(){
+    fun retrieveUserList() {
 
         viewModelScope.launch {
 
@@ -31,7 +29,7 @@ class UserListViewModel : ViewModel() {
 
             loading.value = true
 
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 response = repository.getAll()
             }
 
@@ -42,20 +40,20 @@ class UserListViewModel : ViewModel() {
         }
     }
 
-    fun setUsersInAdapter(users: ArrayList<User>){
+    fun setUsersInAdapter(users: ArrayList<User>) {
         adapter.addUsers(users)
     }
 
-    fun getUserAdapter(): UserAdapter{
+    fun getUserAdapter(): UserAdapter {
         adapter = UserAdapter(this)
         return adapter
     }
 
-    fun getUserAt(position: Int): User?{
+    fun getUserAt(position: Int): User? {
         return userList.value?.get(position)
     }
 
-    fun userClickItem(user: User){
+    fun userClickItem(user: User) {
         userClick.value = user
     }
 }

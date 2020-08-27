@@ -1,5 +1,6 @@
 package com.companytest.jsonplaceholderintegration.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,9 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailTodoViewModel : ViewModel() {
-
-    private var remoteRepository: RemoteRepository<Todo> = TodoRemoteRepository()
+class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>) : ViewModel() {
 
     var todo: MutableLiveData<Todo> = MutableLiveData()
     var loading: MutableLiveData<Boolean> = MutableLiveData()

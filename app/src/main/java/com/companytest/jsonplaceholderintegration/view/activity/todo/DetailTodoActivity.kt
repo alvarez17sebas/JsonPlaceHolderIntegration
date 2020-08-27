@@ -1,17 +1,19 @@
 package com.companytest.jsonplaceholderintegration.view.activity.todo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.companytest.jsonplaceholderintegration.R
 import com.companytest.jsonplaceholderintegration.databinding.ActivityDetailTodoBinding
 import com.companytest.jsonplaceholderintegration.todoId
 import com.companytest.jsonplaceholderintegration.viewmodel.DetailTodoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailTodoActivity : AppCompatActivity() {
 
-    private lateinit var detailTodoViewModel: DetailTodoViewModel
+    private val detailTodoViewModel: DetailTodoViewModel by viewModels()
     private var todoID: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,15 +22,10 @@ class DetailTodoActivity : AppCompatActivity() {
         setTitle("Todo detail")
 
         retrieveTodoID()
-        initVars()
         setupBinding()
 
         detailTodoViewModel.retrieveTodo(todoID)
 
-    }
-
-    private fun initVars(){
-        detailTodoViewModel = ViewModelProvider(this).get(DetailTodoViewModel::class.java)
     }
 
     private fun retrieveTodoID(){

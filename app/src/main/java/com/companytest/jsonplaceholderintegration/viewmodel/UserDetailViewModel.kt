@@ -1,5 +1,6 @@
 package com.companytest.jsonplaceholderintegration.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,9 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserDetailViewModel : ViewModel() {
-
-    val repository: RemoteRepository<User> = UserRemoteRepository()
+class UserDetailViewModel @ViewModelInject constructor(val repository: RemoteRepository<User>) : ViewModel() {
 
     var user: MutableLiveData<User> = MutableLiveData()
     val loading: MutableLiveData<Boolean> = MutableLiveData()
