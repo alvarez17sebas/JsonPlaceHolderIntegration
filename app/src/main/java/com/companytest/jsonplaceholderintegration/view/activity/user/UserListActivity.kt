@@ -21,22 +21,23 @@ class UserListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTitle("User list")
+        title = getString(R.string.userList)
 
         setupBinding()
         executeObservables()
     }
 
-    private fun setupBinding(){
-        var activityUserListBinding: ActivityUserListBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_list)
+    private fun setupBinding() {
+        var activityUserListBinding: ActivityUserListBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_user_list)
         activityUserListBinding.userListViewModel = userListViewModel
         activityUserListBinding.lifecycleOwner = this
     }
 
-    private fun executeObservables(){
+    private fun executeObservables() {
         userListViewModel.retrieveUserList()
 
-        userListViewModel.userList.observe(this, Observer {users: ArrayList<User> ->
+        userListViewModel.userList.observe(this, Observer { users: ArrayList<User> ->
             userListViewModel.setUsersInAdapter(users)
         })
 

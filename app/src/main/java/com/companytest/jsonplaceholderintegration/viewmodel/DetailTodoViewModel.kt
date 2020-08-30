@@ -11,12 +11,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>) : ViewModel() {
+class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>) :
+    ViewModel() {
 
     var todo: MutableLiveData<Todo> = MutableLiveData()
     var loading: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun retrieveTodo(id: String){
+    fun retrieveTodo(id: String) {
 
         loading.value = true
 
@@ -24,7 +25,7 @@ class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: Rem
 
             var responseTodo: Todo? = null
 
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 responseTodo = remoteRepository.getById(id)
             }
 

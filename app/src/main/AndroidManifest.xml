@@ -28,7 +28,7 @@
         <activity
             android:name=".view.activity.user.UserListActivity"
             android:parentActivityName=".view.activity.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.todo.DetailTodoActivity"
             android:parentActivityName=".view.activity.todo.TodoListActivity"
@@ -36,8 +36,7 @@
         <activity
             android:name=".view.activity.todo.TodoListActivity"
             android:parentActivityName=".view.activity.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

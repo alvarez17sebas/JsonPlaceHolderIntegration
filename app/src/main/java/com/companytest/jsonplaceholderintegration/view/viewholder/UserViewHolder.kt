@@ -9,7 +9,7 @@ class UserViewHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding
 
     private var binding: ViewDataBinding = binding
 
-    fun bindData(userListViewModel: UserListViewModel, position: Int){
+    fun bindData(userListViewModel: UserListViewModel, position: Int) {
         binding.setVariable(BR.model, userListViewModel)
         binding.setVariable(BR.positionUser, position)
     }

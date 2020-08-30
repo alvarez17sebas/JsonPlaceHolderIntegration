@@ -19,7 +19,7 @@ class DetailTodoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTitle("Todo detail")
+        title = getString(R.string.todoDetail)
 
         retrieveTodoID()
         setupBinding()
@@ -28,12 +28,13 @@ class DetailTodoActivity : AppCompatActivity() {
 
     }
 
-    private fun retrieveTodoID(){
+    private fun retrieveTodoID() {
         todoID = intent.getStringExtra(todoId)!!
     }
 
-    private fun setupBinding(){
-        var detailTodoBinding: ActivityDetailTodoBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail_todo)
+    private fun setupBinding() {
+        var detailTodoBinding: ActivityDetailTodoBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_detail_todo)
         detailTodoBinding.model = detailTodoViewModel
         detailTodoBinding.lifecycleOwner = this
     }

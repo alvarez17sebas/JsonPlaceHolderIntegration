@@ -14,4 +14,10 @@
 
     <string name="todolist">Todo list</string>
     <string name="userList">User list</string>
+
+    <string name="todoDetail">Todo detail</string>
+    <string name="userDetail">User detail</string>
+
+    <string name="todoComplete">Todo complete =D</string>
+    <string name="todoIncomplete">Todo incomplete =(</string>
 </resources>
