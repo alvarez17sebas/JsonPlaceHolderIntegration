@@ -18,20 +18,19 @@
         android:id="@+id/cvContainerTodoItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/multiplier_5X_dp"
-        app:cardCornerRadius="@dimen/multiplier_5X_dp"
         android:layout_margin="@dimen/multiplier_2X_dp"
-        android:padding="@dimen/multiplier_5X_dp"
         android:clickable="true"
+        android:elevation="@dimen/multiplier_5X_dp"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="@{() -> model.clickTodoItem(model.getTodoAt(position))}">
+        android:onClick="@{() -> model.clickTodoItem(model.getTodoAt(position))}"
+        android:padding="@dimen/multiplier_5X_dp"
+        app:cardCornerRadius="@dimen/multiplier_5X_dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/multiplier_5X_dp">
-
 
             <TextView
                 android:id="@+id/tvTitleTodo"
@@ -51,8 +50,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:todoStatusIcon="@{model.getTodoAt(position).completed}"
-                app:srcCompat="@drawable/ic_complete" />
+                app:srcCompat="@drawable/ic_complete"
+                app:todoStatusIcon="@{model.getTodoAt(position).completed}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

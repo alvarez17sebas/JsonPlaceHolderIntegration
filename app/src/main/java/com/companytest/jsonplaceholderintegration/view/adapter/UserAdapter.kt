@@ -16,7 +16,8 @@ class UserAdapter(var viewModel: UserListViewModel) : RecyclerView.Adapter<UserV
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
-        var binding: ViewDataBinding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false)
+        var binding: ViewDataBinding =
+            DataBindingUtil.inflate(layoutInflater, viewType, parent, false)
         return UserViewHolder(binding)
     }
 
@@ -30,11 +31,11 @@ class UserAdapter(var viewModel: UserListViewModel) : RecyclerView.Adapter<UserV
         return getLayoutForIdPosition()
     }
 
-    private fun getLayoutForIdPosition(): Int{
+    private fun getLayoutForIdPosition(): Int {
         return R.layout.item_user
     }
 
-    fun addUsers(users: ArrayList<User>){
+    fun addUsers(users: ArrayList<User>) {
         data.addAll(users)
         notifyDataSetChanged()
     }

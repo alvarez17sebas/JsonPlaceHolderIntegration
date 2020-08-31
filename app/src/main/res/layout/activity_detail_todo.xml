@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.companytest.jsonplaceholderintegration.viewmodel.DetailTodoViewModel" />
@@ -14,17 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        tools:context=".view.activity.todo.DetailTodoActivity"
         android:layout_marginLeft="@dimen/multiplier_10X_dp"
         android:layout_marginRight="@dimen/multiplier_10X_dp"
         android:elevation="@dimen/multiplier_10X_dp"
-        app:cardCornerRadius="@dimen/multiplier_10X_dp"
-        app:cardBackgroundColor="@color/light_indigo">
+        app:cardBackgroundColor="@color/light_indigo"
+        app:cardCornerRadius="@dimen/multiplier_10X_dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <ImageView
                 android:id="@+id/ivTodoStatusDetail"
@@ -34,28 +33,28 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:todoStatusImage="@{model.todo.completed}"
-                app:srcCompat="@drawable/ic_complete_152dp" />
+                app:srcCompat="@drawable/ic_complete_152dp"
+                app:todoStatusImage="@{model.todo.completed}" />
 
             <TextView
                 android:id="@+id/tvStatusTodoDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:booleanToText="@{model.todo.completed}"
                 android:layout_marginTop="@dimen/multiplier_4X_dp"
+                app:booleanToText="@{model.todo.completed}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivTodoStatusDetail" />
 
             <TextView
                 android:id="@+id/tvTitleTodoDetail"
+                style="@style/normalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/multiplier_5X_dp"
                 android:layout_marginLeft="@dimen/multiplier_4X_dp"
+                android:layout_marginTop="@dimen/multiplier_5X_dp"
                 android:layout_marginRight="@dimen/multiplier_4X_dp"
                 android:text="@{model.todo.title}"
-                style="@style/normalText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +70,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:visible="@{model.loading}">
-
 
                 <View
                     android:id="@+id/view"
@@ -96,7 +94,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.cardview.widget.CardView>
 </layout>

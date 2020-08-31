@@ -19,29 +19,31 @@ class TodoListActivity : AppCompatActivity() {
     private val todoListViewModel: TodoListViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTitle("Todo list")
+
+        title = getString(R.string.todolist)
 
         setupBindings()
         executeObservableCode()
     }
 
-    private fun executeObservableCode(){
+    private fun executeObservableCode() {
 
         todoListViewModel.retrieveTodoList()
 
-        todoListViewModel.todoList.observe(this, Observer {todoList: ArrayList<Todo> ->
+        todoListViewModel.todoList.observe(this, Observer { todoList: ArrayList<Todo> ->
             todoListViewModel.setTodoInRecyclerAdapter(todoList)
         })
 
-        todoListViewModel.clickTodoItem.observe(this, Observer {todoItem: Todo ->
-            var intent: Intent = Intent(this, DetailTodoActivity::class.java)
+        todoListViewModel.clickTodoItem.observe(this, Observer { todoItem: Todo ->
+            val intent: Intent = Intent(this, DetailTodoActivity::class.java)
             intent.putExtra(todoId, todoItem.id.toString())
             startActivity(intent)
         })
     }
 
-    private fun setupBindings(){
-        var activityTodoListBinding: ActivityTodolistBinding =  DataBindingUtil.setContentView(this, R.layout.activity_todolist)
+    private fun setupBindings() {
+        var activityTodoListBinding: ActivityTodolistBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_todolist)
         activityTodoListBinding.todoListViewModel = todoListViewModel
         activityTodoListBinding.lifecycleOwner = this
     }

@@ -17,18 +17,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/multiplier_2X_dp"
-        android:elevation="@dimen/multiplier_5X_dp"
-        app:cardCornerRadius="@dimen/multiplier_5X_dp"
         android:clickable="true"
+        android:elevation="@dimen/multiplier_5X_dp"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="@{() -> model.userClickItem(model.getUserAt(positionUser))}">
+        android:onClick="@{() -> model.userClickItem(model.getUserAt(positionUser))}"
+        app:cardCornerRadius="@dimen/multiplier_5X_dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/multiplier_5X_dp">
-
 
             <ImageView
                 android:id="@+id/ivUserPhoto"
@@ -41,25 +40,24 @@
 
             <TextView
                 android:id="@+id/tvNameUser"
+                style="@style/normalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/multiplier_5X_dp"
                 android:text="@{model.getUserAt(positionUser).name}"
-                style="@style/normalText"
                 app:layout_constraintBottom_toTopOf="@+id/tvEmailUser"
                 app:layout_constraintStart_toEndOf="@+id/ivUserPhoto"
                 app:layout_constraintTop_toTopOf="@+id/ivUserPhoto" />
 
             <TextView
                 android:id="@+id/tvEmailUser"
+                style="@style/normalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/multiplier_5X_dp"
                 android:text="@{model.getUserAt(positionUser).email}"
-                style="@style/normalText"
                 app:layout_constraintBottom_toBottomOf="@+id/ivUserPhoto"
                 app:layout_constraintStart_toEndOf="@+id/ivUserPhoto" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

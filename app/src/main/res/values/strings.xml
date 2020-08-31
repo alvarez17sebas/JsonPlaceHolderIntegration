@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">C&amp;P</string>
 
-    <string name="address">Addres </string>
+    <string name="address">Address </string>
     <string name="street">Street: </string>
     <string name="suite">Suite: </string>
     <string name="city">City: </string>
@@ -14,4 +14,10 @@
 
     <string name="todolist">Todo list</string>
     <string name="userList">User list</string>
+
+    <string name="todoDetail">Todo detail</string>
+    <string name="userDetail">User detail</string>
+
+    <string name="todoComplete">Todo complete =D</string>
+    <string name="todoIncomplete">Todo incomplete =(</string>
 </resources>

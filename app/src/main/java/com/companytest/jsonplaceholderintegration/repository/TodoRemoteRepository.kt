@@ -5,12 +5,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-class TodoRemoteRepository @Inject constructor(): RemoteRepository<Todo> {
+class TodoRemoteRepository @Inject constructor() : RemoteRepository<Todo> {
 
     private var retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
-        GsonConverterFactory.create()).build()
+        GsonConverterFactory.create()
+    ).build()
 
-    private var jsonPlaceHolderService: JsonPlaceHolderService = retrofit.create(JsonPlaceHolderService::class.java)
+    private var jsonPlaceHolderService: JsonPlaceHolderService =
+        retrofit.create(JsonPlaceHolderService::class.java)
 
 
     override suspend fun getAll(): ArrayList<Todo> {

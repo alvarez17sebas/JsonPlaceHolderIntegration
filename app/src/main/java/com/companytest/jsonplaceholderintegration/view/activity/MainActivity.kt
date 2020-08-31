@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         clickEvents()
     }
 
-    private fun clickEvents(){
+    private fun clickEvents() {
 
-        flTodoListContainer.setOnClickListener{
+        flTodoListContainer.setOnClickListener {
             var intent: Intent = Intent(this, TodoListActivity::class.java)
             startActivity(intent)
         }

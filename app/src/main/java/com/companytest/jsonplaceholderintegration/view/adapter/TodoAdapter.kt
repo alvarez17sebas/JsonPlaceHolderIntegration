@@ -17,7 +17,8 @@ class TodoAdapter(var viewModel: TodoListViewModel) : RecyclerView.Adapter<TodoV
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
 
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
-        var binding: ViewDataBinding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false)
+        var binding: ViewDataBinding =
+            DataBindingUtil.inflate(layoutInflater, viewType, parent, false)
         return TodoViewHolder(
             binding
         )
@@ -34,11 +35,11 @@ class TodoAdapter(var viewModel: TodoListViewModel) : RecyclerView.Adapter<TodoV
         return getLayoutIdForPosition()
     }
 
-    private fun getLayoutIdForPosition(): Int{
+    private fun getLayoutIdForPosition(): Int {
         return R.layout.item_todo
     }
 
-    fun addTodos(todoList: ArrayList<Todo>){
+    fun addTodos(todoList: ArrayList<Todo>) {
         data.addAll(todoList)
         notifyDataSetChanged()
     }

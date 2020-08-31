@@ -19,7 +19,7 @@ class UserDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTitle("User detail")
+        title = getString(R.string.userDetail)
 
         retrieveUserID()
         setupBinding()
@@ -27,13 +27,14 @@ class UserDetailActivity : AppCompatActivity() {
         userDetailVieWModel.retrieveUser(userID)
     }
 
-    private fun setupBinding(){
-        val detailUserBinding: ActivityUserDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
+    private fun setupBinding() {
+        val detailUserBinding: ActivityUserDetailBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
         detailUserBinding.userDetailViewModel = userDetailVieWModel
         detailUserBinding.lifecycleOwner = this
     }
 
-    private fun retrieveUserID(){
+    private fun retrieveUserID() {
         userID = intent.getStringExtra(userId)!!
     }
 

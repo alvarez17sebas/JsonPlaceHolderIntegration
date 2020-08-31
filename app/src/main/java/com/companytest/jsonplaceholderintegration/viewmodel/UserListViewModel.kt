@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.companytest.jsonplaceholderintegration.model.User
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
-import com.companytest.jsonplaceholderintegration.repository.UserRemoteRepository
 import com.companytest.jsonplaceholderintegration.view.adapter.UserAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserListViewModel  @ViewModelInject constructor(var repository: RemoteRepository<User>): ViewModel() {
+class UserListViewModel @ViewModelInject constructor(var repository: RemoteRepository<User>) :
+    ViewModel() {
 
     var userList: MutableLiveData<ArrayList<User>> = MutableLiveData()
     var loading: MutableLiveData<Boolean> = MutableLiveData()

@@ -6,15 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.companytest.jsonplaceholderintegration.model.Todo
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
-import com.companytest.jsonplaceholderintegration.repository.TodoRemoteRepository
 import com.companytest.jsonplaceholderintegration.view.adapter.TodoAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TodoListViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>): ViewModel() {
+class TodoListViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>) :
+    ViewModel() {
 
-    //private var remoteRepository: RemoteRepository<Todol> = TodoRemoteRepository()
 
     var todoList: MutableLiveData<ArrayList<Todo>> = MutableLiveData()
     var loading: MutableLiveData<Boolean> = MutableLiveData()
@@ -22,7 +21,7 @@ class TodoListViewModel @ViewModelInject constructor(var remoteRepository: Remot
 
     private lateinit var adapter: TodoAdapter
 
-    fun retrieveTodoList(){
+    fun retrieveTodoList() {
 
         viewModelScope.launch {
 
@@ -30,7 +29,7 @@ class TodoListViewModel @ViewModelInject constructor(var remoteRepository: Remot
 
             loading.value = true
 
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 responseTodoList = remoteRepository.getAll()
             }
 
@@ -40,7 +39,7 @@ class TodoListViewModel @ViewModelInject constructor(var remoteRepository: Remot
         }
     }
 
-    fun setTodoInRecyclerAdapter(todoList: ArrayList<Todo>){
+    fun setTodoInRecyclerAdapter(todoList: ArrayList<Todo>) {
         adapter.addTodos(todoList)
     }
 
@@ -49,12 +48,12 @@ class TodoListViewModel @ViewModelInject constructor(var remoteRepository: Remot
         return adapter
     }
 
-    fun getTodoAt(position:Int): Todo?{
+    fun getTodoAt(position: Int): Todo? {
         val todoItem = todoList.value?.get(position)
         return todoItem
     }
 
-    fun clickTodoItem(todoItem: Todo){
+    fun clickTodoItem(todoItem: Todo) {
         clickTodoItem.value = todoItem
     }
 }
