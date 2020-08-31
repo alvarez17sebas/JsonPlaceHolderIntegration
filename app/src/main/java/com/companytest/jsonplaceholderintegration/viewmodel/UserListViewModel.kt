@@ -4,6 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.companytest.jsonplaceholderintegration.domain.UserDomain
 import com.companytest.jsonplaceholderintegration.model.User
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
 import com.companytest.jsonplaceholderintegration.view.adapter.UserAdapter
@@ -11,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserListViewModel @ViewModelInject constructor(var repository: RemoteRepository<User>) :
+class UserListViewModel @ViewModelInject constructor(var userDomain: UserDomain) :
     ViewModel() {
 
     var userList: MutableLiveData<ArrayList<User>> = MutableLiveData()
@@ -30,7 +31,7 @@ class UserListViewModel @ViewModelInject constructor(var repository: RemoteRepos
             loading.value = true
 
             withContext(Dispatchers.IO) {
-                response = repository.getAll()
+                response = userDomain.retrieveUsers()
             }
 
             userList.value = response
