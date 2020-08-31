@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">C&amp;P</string>
 
-    <string name="address">Addres </string>
+    <string name="address">Address </string>
     <string name="street">Street: </string>
     <string name="suite">Suite: </string>
     <string name="city">City: </string>
