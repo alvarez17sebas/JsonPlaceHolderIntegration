@@ -4,6 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.companytest.jsonplaceholderintegration.domain.TodoDomain
 import com.companytest.jsonplaceholderintegration.model.Todo
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
 import com.companytest.jsonplaceholderintegration.repository.TodoRemoteRepository
@@ -11,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: RemoteRepository<Todo>) :
+class DetailTodoViewModel @ViewModelInject constructor(var todoDomain: TodoDomain) :
     ViewModel() {
 
     var todo: MutableLiveData<Todo> = MutableLiveData()
@@ -26,7 +27,7 @@ class DetailTodoViewModel @ViewModelInject constructor(var remoteRepository: Rem
             var responseTodo: Todo? = null
 
             withContext(Dispatchers.IO) {
-                responseTodo = remoteRepository.getById(id)
+                responseTodo = todoDomain.retrieveTodo(id)
             }
 
             todo.value = responseTodo

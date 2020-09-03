@@ -22,4 +22,8 @@ class TodoRemoteRepository @Inject constructor() : RemoteRepository<Todo> {
     override suspend fun getById(id: String): Todo {
         return jsonPlaceHolderService.getTodo(id)
     }
+
+    override fun toString(): String {
+        return TodoRemoteRepository::class.java.name
+    }
 }

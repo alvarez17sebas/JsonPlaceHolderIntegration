@@ -21,4 +21,8 @@ class UserRemoteRepository @Inject constructor() : RemoteRepository<User> {
     override suspend fun getById(id: String): User {
         return jsonPlaceHolderService.getUserById(id)
     }
+
+    override fun toString(): String {
+        return UserRemoteRepository::class.java.name
+    }
 }

@@ -4,13 +4,14 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.companytest.jsonplaceholderintegration.domain.UserDomain
 import com.companytest.jsonplaceholderintegration.model.User
 import com.companytest.jsonplaceholderintegration.repository.RemoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserDetailViewModel @ViewModelInject constructor(val repository: RemoteRepository<User>) :
+class UserDetailViewModel @ViewModelInject constructor(val userDomain: UserDomain) :
     ViewModel() {
 
     var user: MutableLiveData<User> = MutableLiveData()
@@ -23,7 +24,7 @@ class UserDetailViewModel @ViewModelInject constructor(val repository: RemoteRep
             loading.value = true
 
             withContext(Dispatchers.IO) {
-                response = repository.getById(id)
+                response = userDomain.retrieveUser(id)
             }
             user.value = response
             loading.value = false
